@@ -16,7 +16,13 @@ def serve(path):
     return send_from_directory(app.static_folder, 'index.html')
 
 
+@app.route("/members")
+def members():
+    return {"members": ["member1", "member2", "member3"]}
+
+
 api.add_resource(HelloApiHandler, '/flask/hello')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
