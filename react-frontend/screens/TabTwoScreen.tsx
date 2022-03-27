@@ -1,13 +1,20 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { Alert, Button, StyleSheet } from 'react-native';
 
 import { Text, View } from '../components/Themed';
 
 const TabTwoScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calorie Stack</Text>
+      <Text style={styles.title}>Calorie Log</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <Button
+        title="Record my meal"
+        color="#841584"
+        onPress={() => Alert.alert('Picture captured! Calorie information will be added :)')
+          // adding stuff
+        }
+      />
     </View>
   );
 }
