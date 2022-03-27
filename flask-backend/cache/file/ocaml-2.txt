@@ -1,0 +1,109 @@
+Last login: Sun Feb 27 18:33:29 on ttys000
+~ ❯ utop                                                            06:35:54 PM
+────────┬─────────────────────────────────────────────────────────────┬─────────
+        │ Welcome to utop version 2.9.0 (using OCaml version 4.12.0)! │
+        └─────────────────────────────────────────────────────────────┘
+
+Type #utop_help for help about using utop.
+
+─( 18:35:55 )─< command 0 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # fun x -> x * x;;
+- : int -> int = <fun>
+─( 18:35:55 )─< command 1 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # (fun x -> x * x) 5;;
+- : int = 25
+─( 18:36:35 )─< command 2 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let multi = fun x -> x * x;;
+val multi : int -> int = <fun>
+─( 18:36:46 )─< command 3 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # multi 6;;
+- : int = 36
+─( 18:37:11 )─< command 4 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let multi x = x * x;;
+val multi : int -> int = <fun>
+─( 18:37:14 )─< command 5 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # multi 8;;
+- : int = 64
+─( 18:37:34 )─< command 6 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let rec fac x = if x = 1 then 1 else x * fac(x-1);;
+val fac : int -> int = <fun>
+─( 18:37:37 )─< command 7 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # fac 5;;
+- : int = 120
+─( 18:38:57 )─< command 8 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # fac 0;;
+Stack overflow during evaluation (looping recursion?).
+─( 18:39:01 )─< command 9 >──────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # fac 4;;
+- : int = 24
+─( 18:39:11 )─< command 10 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let rec fac x = if x <= 1 then 1 else x * fac(x-1);;
+val fac : int -> int = <fun>
+─( 18:39:26 )─< command 11 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let rec fac x = if x <= 1 then 1 else x * fac(x-1);;
+val fac : int -> int = <fun>
+─( 18:39:40 )─< command 12 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # fac 0;;
+- : int = 1
+─( 18:39:43 )─< command 13 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # fac -2;;
+Error: This expression has type int -> int
+       but an expression was expected of type int
+─( 18:39:46 )─< command 14 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # (* hihi *);;
+─( 18:39:56 )─< command 15 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let enum l =
+List.fold_left (fun (res, n) e -> ((e, n) :: res, n+1)) ([], 1) l;;
+val enum : 'a list -> ('a * int) list * int = <fun>
+─( 18:40:07 )─< command 16 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # enum [2; 15; 6];;
+- : (int * int) list * int = ([(6, 3); (15, 2); (2, 1)], 4)
+─( 18:42:24 )─< command 17 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let enum l =
+List.rev( fst (List.fold_left (fun (res, n) e -> ((e, n) :: res, n+1)) ([], 1) l));;
+val enum : 'a list -> ('a * int) list = <fun>
+─( 18:42:35 )─< command 18 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # enum [2; 15; 6];;
+- : (int * int) list = [(2, 1); (15, 2); (6, 3)]
+─( 18:43:15 )─< command 19 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # enum [2; 15; 6; 8];;
+- : (int * int) list = [(2, 1); (15, 2); (6, 3); (8, 4)]
+─( 18:43:17 )─< command 20 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let rec enum n l =
+match l with
+| [] -> []
+| h :: tl -> (h, n) :: enum (n+1) tl;;
+val enum : int -> 'a list -> ('a * int) list = <fun>
+─( 18:43:22 )─< command 21 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # enum 1 [2; 15; 6; 8];;
+- : (int * int) list = [(2, 1); (15, 2); (6, 3); (8, 4)]
+─( 18:44:46 )─< command 22 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let enum1 l = enum1 l ;;
+Error: Unbound value enum1
+Hint: Did you mean enum?
+Hint: If this is a recursive definition,
+you should add the 'rec' keyword on line 1
+─( 18:44:54 )─< command 23 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let enum1 l = enum 1 l;;
+val enum1 : 'a list -> ('a * int) list = <fun>
+─( 18:45:39 )─< command 24 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # enum 1 [2;15;6];;
+- : (int * int) list = [(2, 1); (15, 2); (6, 3)]
+─( 18:45:56 )─< command 25 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # enum1 [2;15;6];;
+- : (int * int) list = [(2, 1); (15, 2); (6, 3)]
+─( 18:46:04 )─< command 26 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # let rec enum n = function
+| [] -> []
+| h :: tl -> (h, n) :: enum (n+1) tl;;
+val enum : int -> 'a list -> ('a * int) list = <fun>
+─( 18:46:16 )─< command 27 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # enum1 [2;15;6];;
+- : (int * int) list = [(2, 1); (15, 2); (6, 3)]
+─( 18:47:15 )─< command 28 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop # enum 1 [2;15;6];;
+- : (int * int) list = [(2, 1); (15, 2); (6, 3)]
+─( 18:47:19 )─< command 29 >─────────────────────────────────────────────────────────────{ counter: 0 }─
+utop #
+
+~ 26m 28s ❯                                                                                 07:02:23 PM

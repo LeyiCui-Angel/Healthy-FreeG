@@ -1,0 +1,54 @@
+:root {
+  --base-pc-color: #75A488;
+  --accent-pc-color: #F08672;
+  --dark-pc-color: #4B2F32;
+  --light-pc-color: #ACC8B8;
+  --white-pc-color: #F4F4F4;
+}
+
+
+.btn-accent {
+  color: var(--white-pc-color);
+  background-color: var(--accent-pc-color);
+  border-color: var(--dark-pc-color);
+}
+
+.btn-accent:hover,
+.btn-accent:focus,
+.btn-accent:active,
+.btn-accent.active,
+.open .dropdown-toggle.btn-accent {
+  color: var(--white-pc-color);
+  background-color: var(--dark-pc-color);
+  border-color: var(--dark-pc-color);
+}
+
+.btn-accent:active,
+.btn-accent.active,
+.open .dropdown-toggle.btn-accent {
+  background-image: none;
+}
+
+.btn-accent.disabled,
+.btn-accent[disabled],
+fieldset[disabled] .btn-accent,
+.btn-accent.disabled:hover,
+.btn-accent[disabled]:hover,
+fieldset[disabled] .btn-accent:hover,
+.btn-accent.disabled:focus,
+.btn-accent[disabled]:focus,
+fieldset[disabled] .btn-accent:focus,
+.btn-accent.disabled:active,
+.btn-accent[disabled]:active,
+fieldset[disabled] .btn-accent:active,
+.btn-accent.disabled.active,
+.btn-accent[disabled].active,
+fieldset[disabled] .btn-accent.active {
+  background-color: var(--dark-pc-color);
+  border-color: var(--dark-pc-color);
+}
+
+.btn-accent .badge {
+  color: var(--accent-pc-color);
+  background-color: var(--white-pc-color);
+}
