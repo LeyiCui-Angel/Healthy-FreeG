@@ -13,8 +13,9 @@ export default function EditScreenInfo() {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Information for FreeG:
-          How to use it? I don't know. This is some random text lololololollllllllllllll
+          FreeG:
+          Swipe right to "THROW AWAY" or donate your food. Swipe left to "CONSUME" your food. Click "Add food" to take a photo of your receipt and record your food!
+
         </Text>
 
         {/*<View
@@ -28,8 +29,8 @@ export default function EditScreenInfo() {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Information for Calorie Stack:
-          How to use it? I don't know. This is some random text lololololollllllllllllll
+          Calorie Log:
+          Click "Record my meal" to take a photo of your meal and our app will record your calorie intake accordingly for you!
         </Text>
       </View>
 
@@ -46,7 +47,7 @@ export default function EditScreenInfo() {
 
 function handleHelpPress() {
   WebBrowser.openBrowserAsync(
-    'https://www.notion.so/tianqizhao/Healthy-FreeG-Team-Wiki-c616c3bd3b1c471393a1d748ffacd0bf'
+    'https://tianqizhao.notion.site/Healthy-FreeG-c616c3bd3b1c471393a1d748ffacd0bf'
   );
 }
 
